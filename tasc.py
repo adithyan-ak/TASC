@@ -1,14 +1,12 @@
-from username import NameUser,Facebook,ScrapTweets,Instgram
+from username import Facebook,ScrapTweets,Instgram
 from EmailScan import GetEmail
 from phonenum import carrierlookup
 from torrenttracker import tracktorrent
-#from web import Web
 from metadata import gps_analyzer
 from reverseimg import reverseImg
 from multipleip import read_multiple_ip
 from iplookup import iptrace, tracktorrent
 from maclookup import macLookup
-#from sentiment import GetTweet
 from fbkeyword import FacebookScrapper
 from newweb import Web
 

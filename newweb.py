@@ -85,9 +85,12 @@ def BruteForce(host, port):
             print("Please choose an Appropriate option")
 
 def Mainmenu():
+    print()
     print("Web OSINT Report : ")
+    print()
     getDomain(host, port)
     print("Web Vulnerability Report : ")
+    print()
     getHost(host, port)
     return
 
