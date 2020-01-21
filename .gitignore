@@ -1,5 +1,5 @@
 .DS_Store
-.idea
+.idea/
 *.pyc
 src/IP2LOCATION-LITE-DB11.BIN
 src/IP2PROXY-LITE-PX8.BIN
