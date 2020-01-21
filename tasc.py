@@ -70,6 +70,8 @@ banner = '''
                 Threat Analysis & Surveillance Cell'''
 
 print(banner)
+print()
+
 
 try:
     def Menu():
