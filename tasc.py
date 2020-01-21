@@ -1,28 +1,64 @@
-
-from username import NameUser
+from username import NameUser,Facebook,ScrapTweets,Instgram
 from EmailScan import GetEmail
 from phonenum import carrierlookup
 from torrenttracker import tracktorrent
-from web import Web
+#from web import Web
 from metadata import gps_analyzer
 from reverseimg import reverseImg
-from multipleip import get_ip
+from multipleip import read_multiple_ip
+from iplookup import iptrace, tracktorrent
 from maclookup import macLookup
-from sentiment import GetTweet
+#from sentiment import GetTweet
 from fbkeyword import FacebookScrapper
+from newweb import Web
 
-MainFunctions={
- 1: NameUser,
- 2: carrierlookup,
- 3: GetEmail,
- 4: tracktorrent,
- 5: FacebookScrapper,
- 6: Web,
- 7: gps_analyzer,
- 8: reverseImg,
- 9: get_ip,
- 10: macLookup,
- 11: GetTweet
+def MainMenu():
+        username = input("Enter the Username : ")
+        print()
+        if username != '':
+                print("Facebook Information : ")
+                Facebook(username)
+                print("Twitter Information : ")
+                ScrapTweets(username)
+                print("Instagram Information : ")
+                Instgram(username)
+                return
+        phonenum = input("Enter the Phone Number with country code : ")
+        print()
+        if phonenum != '':
+                print()
+                print("Phone Number Information : ")
+                carrierlookup(phonenum)
+        email = input("Enter the Email : ")
+        print()
+        if email != '':
+                GetEmail(email)
+        ip = input("Enter the IP : ")
+        print()
+        if ip != '':
+                iptrace(ip)
+                tracktorrent(ip)
+        domain = input("Enter the Domain : ")
+        print()
+        if domain != '':
+                port = int(input("Enter the port : "))
+                Web(domain, port)
+        keyword = input("Enter the Keyword to scrap : ")
+        print()
+        if keyword !='':
+                FacebookScrapper(keyword)
+        return
+
+
+
+
+
+MainFunctions = {
+    1: gps_analyzer,
+    2: reverseImg,
+    3: read_multiple_ip,
+    4: macLookup
+  #  11: GetTweet
 }
 
 banner = '''
@@ -32,7 +68,7 @@ banner = '''
                    ██║   ██╔══██║╚════██║██║     
                    ██║   ██║  ██║███████║╚██████╗
                    ╚═╝   ╚═╝  ╚═╝╚══════╝ ╚═════╝
-                                           
+
                 Threat Analysis & Surveillance Cell'''
 
 print(banner)
@@ -42,18 +78,20 @@ try:
         Selection = 1
         while True:
 
-            print("1. Username")
-            print("2. Phone Number")
-            print("3. Email")
-            print("4. Torrent Tracker")
-            print("5. Facebook Keyword Analyzer")
-            print("6. Domain")
-            print("7. Metadata Analyzer")
-            print("8. Reverse Image Search")
-            print("9. IP Heatmap")
-            print("10. Mac Address Lookup")
-            print("11. Sentiment Analysis")
-            print("12. Exit")
+            MainMenu()
+
+         #   print("1. Username")
+          #  print("2. Phone Number")
+          #  print("3. Email")
+          #  print("4. Torrent Tracker")
+          #  print("5. Facebook Keyword Analyzer")
+           # print("6. Domain")
+            print("1. Metadata Analyzer")
+            print("2. Reverse Image Search")
+            print("3. IP Heatmap")
+            print("4. Mac Address Lookup")
+         #   print("5. Sentiment Analysis")
+            print("5. Exit")
             print('')
             Selection = int(input(">> "))
             print('')
@@ -62,24 +100,11 @@ try:
             elif (Selection == 2):
                 MainFunctions[Selection]()
             elif (Selection == 3):
-                MainFunctions[Selection]()
+                ip_file = input("Enter the location of the IP file : ")
+                MainFunctions[Selection](ip_file)
             elif (Selection == 4):
                 MainFunctions[Selection]()
-            elif (Selection == 5):
-                MainFunctions[Selection]()
-            elif Selection == 6:
-                MainFunctions[Selection]()
-            elif Selection == 7:
-                MainFunctions[Selection]()
-            elif Selection == 8:
-                MainFunctions[Selection]()
-            elif Selection == 9:
-                MainFunctions[Selection]()
-            elif Selection == 10:
-                MainFunctions[Selection]()
-            elif Selection == 11:
-                MainFunctions[Selection]()
-            elif Selection == 12:
+            elif Selection == 5:
                 exit()
             else:
                 print("Please choose an Appropriate option")
